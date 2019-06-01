@@ -41,37 +41,81 @@
 
     <!--Game Buttons/Crystals-->
     <img src="http://uploads.webflow.com/5a8cfc09aee91400019461b0/5a8d073baee9140001946903_Asset%206%402x.png" alt="..."
-        class="rounded">
+        class="rounded violetInput">
     <img src="http://uploads.webflow.com/5a8cfc09aee91400019461b0/5a8cffecaee91400019463c5_Asset%201%402x.png" alt="..."
-        class="rounded">
+        class="rounded rubyInput">
     <img src="http://uploads.webflow.com/5a8cfc09aee91400019461b0/5a8cffecaee91400019463c4_Asset%202%402x.png" alt="..."
-        class="rounded">
+        class="rounded sapphireInput">
     <img src="http://uploads.webflow.com/5a8cfc09aee91400019461b0/5a8cffec2d6ad40001720f22_Asset%205%402x.png" alt="..."
-        class="rounded">
+        class="rounded orangeInput">
     <!--User Score Card-->
     <div class="card" style="width: 18rem;">
-            <div class="card-header score-cd">
-              Your Score:<p class="userScore"></p> 
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item score-cd">Wins:<p class="userWin"></p></li>
-              <li class="list-group-item score-cd">Losses:<p class="userLoss"></p></li>
-            </ul>
-          </div>
+        <div class="card-header score-cd">
+            Your Score:<p class="userScore"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item score-cd">Wins:<p class="userWin"></p>
+            </li>
+            <li class="list-group-item score-cd">Losses:<p class="userLoss"></p>
+            </li>
+        </ul>
+    </div>
     <!---Random Number for win-->
     <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Goal Number:</h5>
-              <h3 class="compNum"></h3>
-            </div>
-          </div>
-          <!--Start of jQuery/javascript-->
-<script>
+        <div class="card-body">
+            <h5 class="card-title">Goal Number:</h5>
+            <h3 class="compNum"></h3>
+        </div>
+    </div>
+    <!--Start of jQuery/javascript-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //comput random generate number
+            var randomNum = Math.floor(Math.random() * 60) + 30;
+            //violet crystal number
+            var crystalVio = Math.floor(Math.random() * 14);
+            //ruby crystal number
+            var crystalRuby = Math.floor(Math.random() * 14);
+            //sapphire crystal number
+            var crystalSap = Math.floor(Math.random() * 14);
+            //orange crystal number
+            var crystalOrange = Math.floor(Math.random() * 14);
+            //user score number
+            var userNumber = $(".userScore")
+            console.log(randomNum);
+            console.log(crystalVio);
+            console.log(crystalRuby);
+            console.log(crystalSap);
+            console.log(crystalOrange);
+            $(".compNum").text(randomNum);
+            //var crystalOrange = $(".orangeInput");
+            //crystalOrange.attr({"class":"orangInput", "data-random": crystalOrange})
+
+            $(".orangeInput").on("click", function() {
+            console.log(orangeInput);});
+            $(".sapphireInput").on("click", function() {
+            console.log(sapphireInput);});
+            $(".rubyInput").on("click", function() {
+            console.log(rubyInput);});
+            $(".violetInput").on("click", function() {
+            console.log(violetInput);});
+        })
 
 
 
 
-</script>
+
+
+
+
+
+
+
+
+    </script>
+
+
 
 
 
