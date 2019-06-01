@@ -2,8 +2,10 @@
     text-align: center
 }
 .border {
-    border: 10px
-}
-.button-border {
+    border: 10px;
+    background-color: #e5c289
     
+}
+.score-cd {
+    background-color: #e5c289
 }
