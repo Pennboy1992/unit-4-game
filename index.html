@@ -71,37 +71,105 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+
+            var randomNum = 0;
+            var crystalVio = 0;
+            var crystalRuby = 0;
+            var crystalSap = 0;
+            var crystalOrange = 0;
+            var userNumber = 0;
+            var userW = 0;
+            var userL = 0;
+
+
             //comput random generate number
+            function addingToScore(crystalNumber) {
+                userNumber = userNumber + crystalNumber
+            }
+
             var randomNum = Math.floor(Math.random() * 60) + 30;
             //violet crystal number
-            var crystalVio = Math.floor(Math.random() * 14);
+            var crystalVio = Math.floor(Math.random() * 12) + 1;
+            $(".violetInput").attr("data-crystalV", crystalVio)
+
             //ruby crystal number
-            var crystalRuby = Math.floor(Math.random() * 14);
+            var crystalRuby = Math.floor(Math.random() * 12) + 1;
+            $(".rubyInput").attr("data-crystalR", crystalRuby)
             //sapphire crystal number
-            var crystalSap = Math.floor(Math.random() * 14);
+            var crystalSap = Math.floor(Math.random() * 12) + 1;
+            $(".sapphireInput").attr("data-crystalS", crystalSap)
             //orange crystal number
-            var crystalOrange = Math.floor(Math.random() * 14);
+            var crystalOrange = Math.floor(Math.random() * 12) + 1;
+            $(".orangeInput").attr("data-crystalO", crystalOrange)
+            //crystalOrange.attr({"class":"orangInput", "data-random": crystalOrange});
             //user score number
-            var userNumber = $(".userScore")
+
+
+
+
+
+
+
+
             console.log(randomNum);
             console.log(crystalVio);
             console.log(crystalRuby);
             console.log(crystalSap);
             console.log(crystalOrange);
+            $(".userScore").text(userNumber)
             $(".compNum").text(randomNum);
             //var crystalOrange = $(".orangeInput");
             //crystalOrange.attr({"class":"orangInput", "data-random": crystalOrange})
+            var resetAll = function () {
+                randomNum = Math.floor(Math.random() * 60) + 30; 
+                userNumber = 0;
+                $(".userScore").text(userNumber);
+                $(".compNum").text(randomNum);
+            }
+            //orange crystal button
+            $(".orangeInput").on("click", function () {
+                addingToScore(crystalOrange);
+                $(".userScore").text(userNumber);
+                checkScore();
 
-            $(".orangeInput").on("click", function() {
-            console.log(orangeInput);});
-            $(".sapphireInput").on("click", function() {
-            console.log(sapphireInput);});
-            $(".rubyInput").on("click", function() {
-            console.log(rubyInput);});
-            $(".violetInput").on("click", function() {
-            console.log(violetInput);});
+
+            });
+            //sapphire crystal button 
+            $(".sapphireInput").on("click", function () {
+                addingToScore(crystalSap);
+                $(".userScore").text(userNumber);
+                checkScore();
+            });
+            //ruby crystal button 
+            $(".rubyInput").on("click", function () {
+                addingToScore(crystalRuby);
+                $(".userScore").text(userNumber);
+                checkScore();
+            });
+            //violet crystal button 
+            $(".violetInput").on("click", function () {
+                addingToScore(crystalVio);
+                $(".userScore").text(userNumber);
+                checkScore();
+
+            });
+
+            var checkScore = function () {
+                if (userNumber === randomNum) {
+                    userW++;
+                    $(".userWin").text(userW);
+                    resetAll();
+                }
+                else if (userNumber > randomNum) {
+                    userL++;
+                    $(".userLoss").text(userL);
+                    resetAll();
+                }
+
+            }
+
+
         })
-
 
 
 
